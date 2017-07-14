@@ -1,0 +1,10 @@
+.gradle
+/build
+/node_modules
+.idea
+*.iml
+package-lock.json
+/node
+/nbproject/private/
+/nbproject
+.tern-project
