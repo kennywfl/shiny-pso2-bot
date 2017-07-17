@@ -1,4 +1,5 @@
 {
-    "prefix" : "/",
-    "token" : ""
+    "prefix": "/",
+    "token": "",
+    "max_symbol": 10
 }
