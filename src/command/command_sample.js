@@ -1,6 +1,6 @@
-const config = require('./src/config.json');
+const config = require('../config.json');
 
-module.exports = Object.freeze({
+exports = Object.freeze({
     SYMBOL : `\`\`\`/symbol<number between 1 to ${config.max_symbol}>\`\`\``,
     SETSYB : `\`\`\`/setsyb <number between 1 to ${config.max_symbol}> <image URL>\`\`\``
 });

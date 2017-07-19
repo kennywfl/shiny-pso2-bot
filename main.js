@@ -8,6 +8,7 @@ const Discord = require("discord.js");
 const validUrl = require('valid-url');
 const config = require("./src/config.json");
 const client = new Discord.Client();
+const db = require('./src/database/dbhelper.js');
 
 client.on("ready", () => {
     console.log("I am ready!");
@@ -65,8 +66,13 @@ client.on("message", (message) => {
                 errorMessage.embed.title = `Invalid URL \'${imageLink}\'! You must use the following format:`
                 message.channel.send(errorMessage).catch(console.error);
             } else {
-                message.delete();
-                // TODO: Add in actual implementation
+                // message.delete();
+                db.save({
+                    _id: `${message.author.id + position}`,
+                    position: position,
+                    image: imageLink
+                });
+                // message.reply(`Saved at position ${position}!`);
             }
         }
     }
