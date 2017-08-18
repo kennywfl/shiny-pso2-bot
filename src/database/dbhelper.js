@@ -20,13 +20,31 @@ exports.save = (record, callback) => {
                     position: record.position,
                     image: record.image
                 }, {}, (err) => {
-                    // callback();
+                    console.error(err);
                 });
             } else {
                 console.log(`Nothing found, inserting new record.`);
                 db.insert(record, (err, newDoc) => {
-                    // callback();
+                    console.error(err);
                 });
+            }
+        }
+    });
+};
+
+exports.find = (record, callback) => {
+    db.find({
+        _id: record.id
+    }, (err, docs) => {
+        if (err !== null) {
+            console.error(err);
+        } else {
+            if (docs.length > 0) {
+                console.log(docs.toString());
+                callback(true, docs[0].image);
+            } else {
+                console.log('Nothing here yet, asking to set some value');
+                callback(false, '')
             }
         }
     });
