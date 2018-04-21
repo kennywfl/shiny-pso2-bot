@@ -13,7 +13,8 @@ const client = new CommandoClient({
 client.registry
     .registerDefaultTypes()
     .registerGroups([
-        ['symbolart', 'Symbol Arts related']
+        ['symbolart', 'Symbol Arts related'],
+        ['fun', 'Funny commands']
     ])
     .registerDefaultGroups()
     .registerDefaultCommands()
